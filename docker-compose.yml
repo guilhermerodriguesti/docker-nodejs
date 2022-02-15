@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nodejs:
+    image: nodejs
+    container_name: nodejs
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm start
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/app
